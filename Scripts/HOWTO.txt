@@ -1,0 +1,69 @@
+- Update support files (README and CHANGES) and commit
+
+- Create SVN branch for the release and check it out 
+
+- Update version number (premake.c) and commit into branch
+
+
+In WINDOWS:
+
+$ premake --clean --target gnu
+$ make CONFIG=Release
+$ cd bin
+$ cp premake.exe ~/Code/Bin
+$ 7z a -tzip premake-win32-${VER}.zip premake.exe
+$ mv premake-win32-${VER}.zip ~/Desktop
+
+In OSX:
+
+- checkout branch
+$ premake --clean --target gnu
+$ make CONFIG=Release TARGET_ARCH="-arch i386 -arch ppc"
+$ cd bin
+$ strip premake
+$ sudo cp premake /usr/local/bin
+$ tar czvf premake-osx-${VER}.tar.gz premake
+$ mv premake-osx-${VER}.tar.gz ~/Desktop
+
+In Linux:
+
+- EXPORT 
+  https://premake.svn.sourceforge.net/svnroot/premake/branches/3.7
+  -> Premake-${VER}
+
+$ premake --clean --target gnu
+$ make CONFIG=Release
+$ cd bin
+$ sudo cp premake /usr/local/bin
+$ tar czvf premake-linux-${VER}.tar.gz premake
+$ sudo mv premake-linux-${VER}.tar.gz /mnt/hgfs/jason/Desktop
+
+$ premake --clean --target gnu
+$ rm -rf Scripts
+$ premake --os windows --target vs6
+$ premake --os windows --target vs2002
+$ unix2dos *.dsw *.sln Src/*.dsp Src/*.vcprj
+$ cd ..
+$ zip -r9 premake-src-${VER}.zip Premake-${VER}/*
+$ sudo mv premake-src-${VER}.zip /mnt/hgfs/jason/Desktop
+
+
+
+
+- Create new file release on SourceForge
+
+- Add new group to SourceForge tracker
+
+- Update download page on premake.sourceforge.net
+
+- Update online documentation as needed
+
+- Announce on website and mailing list
+
+- Update README and premake.c on trunk to version "+"
+
+- Move branch to tag
+
+- Switch back to trunk
+
+
