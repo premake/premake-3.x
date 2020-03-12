@@ -459,3 +459,4 @@ $(OBJDIR)/ow.o: open_watcom/ow.c
 	@$(CC) $(CFLAGS) -o "$@" -c "$<"
 
 -include $(OBJECTS:%.o=%.d)
+
